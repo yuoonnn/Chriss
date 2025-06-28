@@ -1613,3 +1613,58 @@ html, body {
 [data-theme="light"] .stat::before {
     background: #fff !important;
 }
+
+/* Typewriter Animation */
+.typewriter-text {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.typewriter-name {
+    opacity: 1;
+    color: #22c55e !important;
+    font-weight: bold;
+    transition: opacity 0.3s ease;
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    -webkit-text-fill-color: unset !important;
+    background-clip: unset !important;
+}
+
+.cursor {
+    opacity: 0;
+    color: #22c55e;
+    font-weight: bold;
+    animation: blink 1s infinite;
+}
+
+.typewriter-text.animate {
+    animation: typewriter 1.5s steps(8) 0s forwards;
+}
+
+.typewriter-name.animate {
+    animation: typewriter 2s steps(20) 1.5s forwards;
+}
+
+.cursor.animate {
+    opacity: 1;
+    animation: blink 1s infinite;
+}
+
+@keyframes typewriter {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes blink {
+    0%, 50% {
+        opacity: 1;
+    }
+    51%, 100% {
+        opacity: 0;
+    }
+}

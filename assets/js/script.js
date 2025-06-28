@@ -238,32 +238,65 @@ function showNotification(message, type = "info") {
   }, 5000);
 }
 
-// Typing Animation for Hero Title
-function typeWriter(element, text, speed = 100) {
-  let i = 0;
-  element.textContent = "";
+// Typewriter Animation for Hero Section (single span, robust)
+function triggerTypewriter() {
+    const typewriterAll = document.getElementById('typewriter-all');
+    const cursor = document.querySelector('.cursor');
+    if (typewriterAll && cursor) {
+        // Reset
+        typewriterAll.innerHTML = '';
+        cursor.classList.remove('animate');
+        cursor.style.opacity = 0;
 
-  function type() {
-    if (i < text.length) {
-      element.textContent += text.charAt(i);
-      i++;
-      setTimeout(type, speed);
+        // Full text and name range
+        const introText = "Hi, I'm ";
+        const nameText = "Christian Arnold O. Uanan";
+        const fullText = introText + nameText;
+        const nameStart = introText.length;
+        const nameEnd = fullText.length;
+        let i = 0;
+
+        function typeChar() {
+            if (i < fullText.length) {
+                if (i < nameStart) {
+                    typewriterAll.innerHTML += fullText.charAt(i);
+                } else {
+                    // Color the name part green
+                    const before = fullText.slice(0, nameStart);
+                    const namePart = fullText.slice(nameStart, i + 1);
+                    typewriterAll.innerHTML = before + `<span style='color:#22c55e;font-weight:bold;'>${namePart}</span>`;
+                }
+                i++;
+                setTimeout(typeChar, i < nameStart ? 100 : 150);
+            } else {
+                setTimeout(() => {
+                    cursor.classList.add('animate');
+                    cursor.style.opacity = 1;
+                }, 200);
+            }
+        }
+        setTimeout(typeChar, 100);
     }
-  }
-
-  type();
 }
 
-// Initialize typing animation when page loads
-document.addEventListener("DOMContentLoaded", () => {
-  const heroTitle = document.querySelector(".hero-title");
-  if (heroTitle) {
-    const originalText = heroTitle.textContent;
-    setTimeout(() => {
-      typeWriter(heroTitle, originalText, 50);
-    }, 1000);
-  }
+// Trigger typewriter on page load (after loader)
+window.addEventListener('DOMContentLoaded', function() {
+    setTimeout(triggerTypewriter, 4000); // After 4-second loader
 });
+
+// Trigger typewriter when hero section comes into view
+const heroSection = document.querySelector('.hero');
+if (heroSection) {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                triggerTypewriter();
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    observer.observe(heroSection);
+}
 
 // Parallax Effect for Hero Section
 window.addEventListener("scroll", () => {
