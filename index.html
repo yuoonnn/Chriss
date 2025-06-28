@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christian - Full Stack Developer Portfolio</title>
+    <meta name="description" content="Professional portfolio of Christian, a Full Stack Developer specializing in modern web technologies, React, Node.js, and creative problem-solving.">
+    <meta name="keywords" content="Full Stack Developer, Web Developer, React, Node.js, JavaScript, Portfolio">
+    <meta name="author" content="Christian">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://your-portfolio-url.com/">
+    <meta property="og:title" content="Christian - Full Stack Developer Portfolio">
+    <meta property="og:description" content="Professional portfolio of Christian, a Full Stack Developer specializing in modern web technologies.">
+    <meta property="og:image" content="https://your-portfolio-url.com/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://your-portfolio-url.com/">
+    <meta property="twitter:title" content="Christian - Full Stack Developer Portfolio">
+    <meta property="twitter:description" content="Professional portfolio of Christian, a Full Stack Developer specializing in modern web technologies.">
+    <meta property="twitter:image" content="https://your-portfolio-url.com/og-image.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+    .loader-container {
+      position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: #181818;
+      display: flex; justify-content: center; align-items: center; z-index: 10000;
+    }
+    .spinner {
+      position: relative; width: 60px; height: 60px; display: flex; justify-content: center; align-items: center; border-radius: 50%; margin: 0 auto; will-change: transform, opacity;
+    }
+    .spinner span {
+      position: absolute; top: 50%; left: var(--left); width: 35px; height: 7px; background: #fff; animation: dominos 1s ease infinite; box-shadow: 2px 2px 3px 0px black;
+    }
+    .spinner span:nth-child(1) { --left: 80px; animation-delay: 0.05s; }
+    .spinner span:nth-child(2) { --left: 70px; animation-delay: 0.1s; }
+    .spinner span:nth-child(3) { left: 60px; animation-delay: 0.15s; }
+    .spinner span:nth-child(4) { animation-delay: 0.2s; left: 50px; }
+    .spinner span:nth-child(5) { animation-delay: 0.25s; left: 40px; }
+    .spinner span:nth-child(6) { animation-delay: 0.3s; left: 30px; }
+    .spinner span:nth-child(7) { animation-delay: 0.35s; left: 20px; }
+    .spinner span:nth-child(8) { left: 10px; }
+    @keyframes dominos {
+      50% { opacity: 0.7; }
+      75% { -webkit-transform: rotate(90deg); transform: rotate(90deg); }
+      80% { opacity: 1; }
+    }
+    </style>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Christian",
+        "jobTitle": "Full Stack Developer",
+        "description": "Professional Full Stack Developer specializing in modern web technologies",
+        "url": "https://your-portfolio-url.com",
+        "sameAs": [
+            "https://github.com/yourusername",
+            "https://linkedin.com/in/yourusername",
+            "https://twitter.com/yourusername"
+        ],
+        "worksFor": {
+            "@type": "Organization",
+            "name": "Freelance"
+        },
+        "knowsAbout": [
+            "JavaScript",
+            "React",
+            "Node.js",
+            "Python",
+            "Web Development",
+            "Full Stack Development"
+        ]
+    }
+    </script>
+</head>
+<body>
+    <!-- Loader Integration -->
+    <div class="loader-container" id="loader-container">
+        <div class="spinner">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <script>
+      // Loader fade out after 4 seconds
+      window.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+          const loader = document.getElementById('loader-container');
+          if (loader) {
+            loader.classList.add('fade-out');
+            loader.addEventListener('transitionend', function() {
+              loader.remove();
+              document.body.style.overflow = '';
+            }, { once: true });
+          }
+        }, 4000);
+      });
+      // Prevent scroll while loading
+      document.body.style.overflow = 'hidden';
+    </script>
+    <!-- Navigation -->
+    <nav class="navbar" data-aos="fade-down" data-aos-duration="1000">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#home">@chriss</a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#skills" class="nav-link">Skills</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#projects" class="nav-link">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#certifications" class="nav-link">Certifications</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <div class="theme-toggle">
+                <i class="fas fa-moon"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero" data-aos="zoom-in" data-aos-duration="1000">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Hi, I'm <span class="highlight">Christian Arnold O. Uanan</span>
+                </h1>
+                <p class="hero-subtitle">BSIT Student | Network & System Admin Enthusiast</p>
+                <p class="hero-description">
+                    Fourth-year BSIT student at Pampanga State Agricultural University, majoring in Information Technology. Passionate about networking, system administration, and hands-on IT solutions.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                    <a href="assets/docs/resume.pdf" class="btn btn-outline" download>
+                        <i class="fas fa-download"></i> Download Resume
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="profile-card">
+                    <div class="profile-image">
+                        <img src="assets/images/Profile.png" alt="Christian Arnold O. Uanan" class="pixel-hero" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%; image-rendering: pixelated;" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about" data-aos="fade-right" data-aos-duration="800">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up" data-aos-delay="200">About Me</h2>
+            <div class="about-content">
+                <div class="about-text" data-aos="fade-up" data-aos-delay="400">
+                    <p>
+                        I am a fourth-year BSIT student with a strong interest and skillset in networking and system administration. Proficient in subnetting, VLSM, and configuring basic network infrastructures. Familiar with Linux systems and hands-on with command-line operations. Currently enhancing my practical experience in IT systems while seeking internship opportunities that focus on network and infrastructure support.
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat" data-aos="zoom-in" data-aos-delay="600">
+                            <h3>4th Year</h3>
+                            <p>BSIT Student</p>
+                        </div>
+                        <div class="stat" data-aos="zoom-in" data-aos-delay="700">
+                            <h3>PSAU</h3>
+                            <p style="text-align:center;">Pampanga State Agricultural University</p>
+                        </div>
+                        <div class="stat" data-aos="zoom-in" data-aos-delay="800">
+                            <h3>Internship</h3>
+                            <p style="text-align:center;">Seeking Opportunities</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image" data-aos="fade-left" data-aos-delay="400">
+                    <div class="image-placeholder" style="overflow: hidden;">
+                        <img src="assets/images/Profile.png" alt="Christian Arnold O. Uanan" style="width: 100%; height: 100%; object-fit: cover; border-radius: 1rem; image-rendering: pixelated;" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills" data-aos="fade-left" data-aos-duration="800">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up" data-aos-delay="200">Skills & Technologies</h2>
+            <div class="skills-grid">
+                <div class="skill-category" data-aos="zoom-in" data-aos-delay="300">
+                    <h3>Programming Languages</h3>
+                    <div class="skill-items">
+                        <div class="skill-item"><span>Python</span></div>
+                        <div class="skill-item"><span>Java</span></div>
+                        <div class="skill-item"><span>Visual Basic</span></div>
+                        <div class="skill-item"><span>ReactJS</span></div>
+                    </div>
+                </div>
+                <div class="skill-category" data-aos="zoom-in" data-aos-delay="400">
+                    <h3>Databases & Systems</h3>
+                    <div class="skill-items">
+                        <div class="skill-item"><span>MySQL</span></div>
+                        <div class="skill-item"><span>Linux (Ubuntu, Debian)</span></div>
+                    </div>
+                </div>
+                <div class="skill-category" data-aos="zoom-in" data-aos-delay="500">
+                    <h3>Networking</h3>
+                    <div class="skill-items">
+                        <div class="skill-item"><span>VLSM</span></div>
+                        <div class="skill-item"><span>Basic Network Configuration</span></div>
+                        <div class="skill-item"><span>CLI</span></div>
+                        <div class="skill-item"><span>System Troubleshooting</span></div>
+                    </div>
+                </div>
+                <div class="skill-category" data-aos="zoom-in" data-aos-delay="600">
+                    <h3>Creative Tools</h3>
+                    <div class="skill-items">
+                        <div class="skill-item"><span>Adobe Photoshop</span></div>
+                        <div class="skill-item"><span>Adobe Premiere Pro</span></div>
+                    </div>
+                </div>
+                <div class="skill-category" data-aos="zoom-in" data-aos-delay="700">
+                    <h3>Languages</h3>
+                    <div class="skill-items">
+                        <div class="skill-item"><span>Tagalog (Fluent)</span></div>
+                        <div class="skill-item"><span>English (Conversational)</span></div>
+                    </div>
+                </div>
+                <div class="skill-category" data-aos="zoom-in" data-aos-delay="800">
+                    <h3>Interests</h3>
+                    <div class="skill-items">
+                        <div class="skill-item"><span>Web3</span></div>
+                        <div class="skill-item"><span>Blockchain</span></div>
+                        <div class="skill-item"><span>Cinematography</span></div>
+                        <div class="skill-item"><span>Photography</span></div>
+                        <div class="skill-item"><span>Programming</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects" data-aos="fade-right" data-aos-duration="800">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up" data-aos-delay="200">Notable Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="project-image" style="overflow: hidden;">
+                        <img src="assets/images/Solution.png" alt="AEyes Project" />
+                    </div>
+                    <div class="project-content">
+                        <h3>Capstone Project: AEyes</h3>
+                        <p>Developed a standalone device integrating AI and image processing to assist the visually impaired in real-time.</p>
+                        <div class="project-tech">
+                            <span>Artificial Intelligence</span>
+                            <span>Image Processing</span>
+                            <span>Embedded Systems</span>
+                            <span>Python</span>
+                            <span>ESP 32</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> View</a>
+                            <a href="https://github.com/yuoonnn/AEyes" class="project-link" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meet the Dev Section -->
+    <section id="meet-dev" class="meet-dev" data-aos="fade-up" data-aos-duration="800">
+        <div class="container">
+            <div class="dev-card">
+                <div class="meet-dev-content">
+                    <div class="meet-dev-socials" style="display: flex; gap: 1rem; margin-bottom: 1.5rem;">
+                        <a href="https://github.com/yuoonnn" class="social-link" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://www.facebook.com/OngUanan/" class="social-link" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/_notfoundchriss/" class="social-link" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://x.com/yuuuoonn" class="social-link" target="_blank" rel="noopener" aria-label="X"><i class="fab fa-twitter"></i></a>
+                    </div>
+                    <div class="meet-dev-text">
+                        <h3>Christian Arnold O. Uanan</h3>
+                        <p>I'm a fourth-year BSIT student at Pampanga State Agricultural University, passionate about networking, system administration, and building real-world IT solutions. I love learning new technologies, exploring creative ideas, and helping others grow in tech. When I'm not coding, you'll find me experimenting with Web3, blockchain, cinematography, or photography.</p>
+                        <div class="hashtags">
+                            <span>$mentoring</span>
+                            <span>$coding</span>
+                            <span>$learning</span>
+                            <span>$goals</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="meet-me-gallery">
+                <img src="assets/images/Meet Me 1.jpg" alt="Meet Me 1" />
+                <img src="assets/images/Meet Me 2.jpg" alt="Meet Me 2" />
+                <img src="assets/images/Meet Me 3.jpg" alt="Meet Me 3" />
+                <img src="assets/images/Meet Me 4.jpg" alt="Meet Me 4" />
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="certifications" data-aos="fade-left" data-aos-duration="800">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up" data-aos-delay="200">Professional Certifications</h2>
+            <div class="certifications-grid">
+                <!-- Smart & PLDT (InnoGen) Card with Modal -->
+                <div class="certification-card" id="smart-pldt-card" tabindex="0" role="button" aria-haspopup="dialog" aria-controls="smartPldtModal" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="certification-card-inner">
+                        <div class="certification-icon" style="background: none;">
+                            <img src="assets/images/innogen.jpg" alt="InnoGen" style="width:48px;height:48px;object-fit:contain;">
+                        </div>
+                        <div class="certification-content">
+                            <div class="certification-meta">
+                                <span class="certification-date">2025</span>
+                                <span class="certification-issuer">Smart & PLDT</span>
+                            </div>
+                            <h3>Innovation Generation 4.0 (InnoGen) Certificates</h3>
+                            <p>Completed a series of certifications under the InnoGen 4.0 program, focused on inclusive technology, design thinking, validation, prototyping, and business sustainability for community impact.</p>
+                            <div class="certification-badge">
+                                <i class="fas fa-award"></i>
+                                <span>View All</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Hytec Power Inc. -->
+                <div class="certification-card" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="certification-card-inner">
+                        <div class="certification-icon" style="background: none;">
+                            <img src="assets/images/hytec.png" alt="Hytec Power Inc." style="width:48px;height:48px;object-fit:contain;">
+                        </div>
+                        <div class="certification-content">
+                            <div class="certification-meta">
+                                <span class="certification-date">March 2025</span>
+                                <span class="certification-issuer">Hytec Power Inc.</span>
+                            </div>
+                            <h3>3D Printing and Workshop Training Certification</h3>
+                            <p>Hands-on training in 3D printing technology, including design, operation, and troubleshooting of 3D printers for practical applications.</p>
+                            <div class="certification-badge">
+                                <i class="fas fa-award"></i>
+                                <span>Verified</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- SimpliLearn -->
+                <div class="certification-card" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="certification-card-inner">
+                        <div class="certification-icon" style="background: none;">
+                            <img src="assets/images/simplilearn.png" alt="SimpliLearn" style="width:48px;height:48px;object-fit:contain;">
+                        </div>
+                        <div class="certification-content">
+                            <div class="certification-meta">
+                                <span class="certification-date">January 2025</span>
+                                <span class="certification-issuer">SimpliLearn</span>
+                            </div>
+                            <h3>ReactJS for Beginners</h3>
+                            <p>Completed foundational training in ReactJS, covering component-based development, state management, and building interactive web interfaces.</p>
+                            <div class="certification-badge">
+                                <i class="fas fa-award"></i>
+                                <span>Verified</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- PSITE Region 3 -->
+                <div class="certification-card" data-aos="zoom-in" data-aos-delay="600">
+                    <div class="certification-card-inner">
+                        <div class="certification-icon" style="background: none;">
+                            <img src="assets/images/psite.jpg" alt="PSITE Region 3" style="width:48px;height:48px;object-fit:contain;">
+                        </div>
+                        <div class="certification-content">
+                            <div class="certification-meta">
+                                <span class="certification-date">2024 & 2025</span>
+                                <span class="certification-issuer">PSITE Region 3</span>
+                            </div>
+                            <h3>Certificate of Participation</h3>
+                            <p>Recognized for active participation in regional IT education events and conferences, contributing to professional growth and networking.</p>
+                            <div class="certification-badge">
+                                <i class="fas fa-award"></i>
+                                <span>Verified</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact" data-aos="zoom-in" data-aos-duration="800">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up" data-aos-delay="200">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info" data-aos="fade-right" data-aos-delay="400">
+                    <h3>Let's work together!</h3>
+                    <p>I'm always interested in new opportunities and exciting projects. Whether you have a question or just want to say hi, feel free to reach out!</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>asianong24@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>0994-935-7012</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Pampanga State Agricultural University</span>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://github.com/yuoonnn" class="social-link" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                        <a href="https://www.facebook.com/OngUanan/" class="social-link" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/_notfoundchriss/" class="social-link" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+                        <a href="https://x.com/yuuuoonn" class="social-link" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm" data-aos="fade-left" data-aos-delay="400">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" data-aos="fade-up" data-aos-duration="800">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 Christian. All rights reserved.</p>
+                <p>Designed &amp; Built by Christian Uanan</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Smart & PLDT Modal Popup -->
+    <div id="smartPldtModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" tabindex="-1">
+      <div class="modal-overlay"></div>
+      <div class="modal-content">
+        <button class="modal-close" aria-label="Close modal">&times;</button>
+        <h2 id="modalTitle">Smart & PLDT (InnoGen 4.0) Certificates</h2>
+        <div class="modal-cert-grid">
+          <div class="modal-cert-item">
+            <img src="assets/images/Cert/Inclusivity in Impact Through Technology Solutions.png" alt="Inclusivity in Impact Through Technology Solutions">
+            <div class="modal-cert-info">
+              <div class="modal-cert-name">Inclusivity in Impact Through Technology Solutions</div>
+              <div class="modal-cert-date">2025</div>
+            </div>
+          </div>
+          <div class="modal-cert-item">
+            <img src="assets/images/Cert/Proposal Writing.png" alt="Proposal Writing">
+            <div class="modal-cert-info">
+              <div class="modal-cert-name">Proposal Writing</div>
+              <div class="modal-cert-date">2025</div>
+            </div>
+          </div>
+          <div class="modal-cert-item">
+            <img src="assets/images/Cert/Design Thinking & Ideation.png" alt="Design Thinking & Ideation">
+            <div class="modal-cert-info">
+              <div class="modal-cert-name">Design Thinking & Ideation</div>
+              <div class="modal-cert-date">2025</div>
+            </div>
+          </div>
+          <div class="modal-cert-item">
+            <img src="assets/images/Cert/Fundamentals of Validation.png" alt="Fundamentals of Validation">
+            <div class="modal-cert-info">
+              <div class="modal-cert-name">Fundamentals of Validation</div>
+              <div class="modal-cert-date">2025</div>
+            </div>
+          </div>
+          <div class="modal-cert-item">
+            <img src="assets/images/Cert/Lean Canvas & Value Preposition.png" alt="Lean Canvas & Value Preposition">
+            <div class="modal-cert-info">
+              <div class="modal-cert-name">Lean Canvas & Value Preposition</div>
+              <div class="modal-cert-date">2025</div>
+            </div>
+          </div>
+          <div class="modal-cert-item">
+            <img src="assets/images/Cert/Turn Your School Project into a Sustainable Business.png" alt="Turn Your School Project into a Sustainable Business">
+            <div class="modal-cert-info">
+              <div class="modal-cert-name">Turn Your School Project into a Sustainable Business</div>
+              <div class="modal-cert-date">2025</div>
+            </div>
+          </div>
+          <div class="modal-cert-item">
+            <img src="assets/images/Cert/User Interface and User Experience Design.png" alt="User Interface and User Experience Design">
+            <div class="modal-cert-info">
+              <div class="modal-cert-name">User Interface and User Experience Design</div>
+              <div class="modal-cert-date">2025</div>
+            </div>
+          </div>
+          <div class="modal-cert-item">
+            <img src="assets/images/Cert/Fundamentals of Prototyping.png" alt="Fundamentals of Prototyping">
+            <div class="modal-cert-info">
+              <div class="modal-cert-name">Fundamentals of Prototyping</div>
+              <div class="modal-cert-date">2025</div>
+            </div>
+          </div>
+          <div class="modal-cert-item">
+            <img src="assets/images/Cert/Data Privacy and Protection.png" alt="Data Privacy and Protection">
+            <div class="modal-cert-info">
+              <div class="modal-cert-name">Data Privacy and Protection</div>
+              <div class="modal-cert-date">2025</div>
+            </div>
+          </div>
+          <div class="modal-cert-item">
+            <img src="assets/images/Cert/Understanding the Disability Market.png" alt="Understanding the Disability Market">
+            <div class="modal-cert-info">
+              <div class="modal-cert-name">Understanding the Disability Market</div>
+              <div class="modal-cert-date">2025</div>
+            </div>
+          </div>
+          <div class="modal-cert-item">
+            <img src="assets/images/Cert/Participation Certificate.png" alt="Participation Certificate">
+            <div class="modal-cert-info">
+              <div class="modal-cert-name">Participation Certificate</div>
+              <div class="modal-cert-date">2025</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="assets/js/script.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: false,
+            offset: 100
+        });
+    </script>
+</body>
+</html> 
