@@ -6,36 +6,88 @@ const navLinks = document.querySelectorAll(".nav-link");
 const themeToggle = document.querySelector(".theme-toggle");
 const contactForm = document.getElementById("contactForm");
 
-// Navigation Toggle
+// Hamburger menu toggle
 navToggle.addEventListener("click", () => {
   navMenu.classList.toggle("active");
-    
-    // Animate hamburger menu
+  navToggle.classList.toggle("active");
+  // Animate hamburger bars
   const bars = navToggle.querySelectorAll(".bar");
-    bars.forEach((bar, index) => {
+  bars.forEach((bar, index) => {
     if (navMenu.classList.contains("active")) {
-      if (index === 0)
-        bar.style.transform = "rotate(45deg) translate(5px, 5px)";
+      if (index === 0) bar.style.transform = "rotate(45deg) translate(5px, 5px)";
       if (index === 1) bar.style.opacity = "0";
-      if (index === 2)
-        bar.style.transform = "rotate(-45deg) translate(7px, -6px)";
-        } else {
+      if (index === 2) bar.style.transform = "rotate(-45deg) translate(7px, -6px)";
+    } else {
       bar.style.transform = "none";
       bar.style.opacity = "1";
-        }
-    });
+    }
+  });
 });
 
-// Close mobile menu when clicking on a link
+// Bulletproof close menu function
+function closeMobileMenu() {
+  navMenu.classList.remove("active");
+  navToggle.classList.remove("active");
+  // Remove any inline styles that might have been set
+  navMenu.removeAttribute("style");
+  // Reset hamburger bars
+  const bars = navToggle.querySelectorAll(".bar");
+  bars.forEach((bar) => {
+    bar.style.transform = "none";
+    bar.style.opacity = "1";
+  });
+}
+
+// Close menu on nav link click
 navLinks.forEach((link) => {
-  link.addEventListener("click", () => {
-    navMenu.classList.remove("active");
-    const bars = navToggle.querySelectorAll(".bar");
-    bars.forEach((bar) => {
-      bar.style.transform = "none";
-      bar.style.opacity = "1";
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+    closeMobileMenu();
+    console.log("Nav link clicked, menu closed");
+    // Scroll to section after menu closes
+    setTimeout(() => {
+      const targetId = link.getAttribute("href");
+      const targetSection = document.querySelector(targetId);
+      if (targetSection) {
+        const offsetTop = targetSection.offsetTop - 70;
+        window.scrollTo({
+          top: offsetTop,
+          behavior: "smooth",
         });
-    });
+      }
+    }, 100);
+  });
+});
+
+// Close menu when clicking outside
+window.addEventListener("click", (e) => {
+  if (
+    navMenu.classList.contains("active") &&
+    !navMenu.contains(e.target) &&
+    !navToggle.contains(e.target)
+  ) {
+    closeMobileMenu();
+  }
+});
+
+// Close menu on resize
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 900 && navMenu.classList.contains("active")) {
+    closeMobileMenu();
+  }
+});
+
+// Close menu on Escape key
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && navMenu.classList.contains("active")) {
+    closeMobileMenu();
+  }
+});
+
+// Ensure menu is closed on page load
+document.addEventListener("DOMContentLoaded", () => {
+  closeMobileMenu();
+  // ...rest of your DOMContentLoaded code...
 });
 
 // Navbar scroll effect
@@ -121,23 +173,6 @@ if (savedTheme === "dark") {
   icon.className = "fas fa-sun";
 }
 
-// Smooth scrolling for navigation links
-navLinks.forEach((link) => {
-  link.addEventListener("click", (e) => {
-        e.preventDefault();
-    const targetId = link.getAttribute("href");
-        const targetSection = document.querySelector(targetId);
-        
-        if (targetSection) {
-            const offsetTop = targetSection.offsetTop - 70; // Account for fixed navbar
-            window.scrollTo({
-                top: offsetTop,
-        behavior: "smooth",
-            });
-        }
-    });
-});
-
 // Intersection Observer for animations
 const observerOptions = {
     threshold: 0.1,
@@ -152,13 +187,19 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe elements for animation
+// Initialize mobile menu state on page load
 document.addEventListener("DOMContentLoaded", () => {
-  const animateElements = document.querySelectorAll(
-    ".skill-category, .project-card, .certification-card, .stat"
-  );
-  animateElements.forEach((el) => {
-    el.classList.add("loading");
+    // Ensure mobile menu is closed on page load
+    if (navMenu.classList.contains("active")) {
+        closeMobileMenu();
+    }
+    
+    // Initialize other elements
+    const animateElements = document.querySelectorAll(
+        ".skill-category, .project-card, .certification-card, .stat"
+    );
+    animateElements.forEach((el) => {
+        el.classList.add("loading");
         observer.observe(el);
     });
 });
