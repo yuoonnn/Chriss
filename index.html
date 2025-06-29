@@ -41,27 +41,82 @@
     <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <style>
     .loader-container {
-      position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: #181818;
-      display: flex; justify-content: center; align-items: center; z-index: 10000;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #181818;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10000;
+      opacity: 1;
+      transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow: hidden;
     }
-    .spinner {
-      position: relative; width: 60px; height: 60px; display: flex; justify-content: center; align-items: center; border-radius: 50%; margin: 0 auto; will-change: transform, opacity;
+    .loader-container.fade-out {
+      opacity: 0;
     }
-    .spinner span {
-      position: absolute; top: 50%; left: var(--left); width: 35px; height: 7px; background: #fff; animation: dominos 1s ease infinite; box-shadow: 2px 2px 3px 0px black;
+    .loader {
+      position: relative;
+      width: 96px;
+      height: 96px;
+      transform: rotate(45deg);
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
-    .spinner span:nth-child(1) { --left: 80px; animation-delay: 0.05s; }
-    .spinner span:nth-child(2) { --left: 70px; animation-delay: 0.1s; }
-    .spinner span:nth-child(3) { left: 60px; animation-delay: 0.15s; }
-    .spinner span:nth-child(4) { animation-delay: 0.2s; left: 50px; }
-    .spinner span:nth-child(5) { animation-delay: 0.25s; left: 40px; }
-    .spinner span:nth-child(6) { animation-delay: 0.3s; left: 30px; }
-    .spinner span:nth-child(7) { animation-delay: 0.35s; left: 20px; }
-    .spinner span:nth-child(8) { left: 10px; }
-    @keyframes dominos {
-      50% { opacity: 0.7; }
-      75% { -webkit-transform: rotate(90deg); transform: rotate(90deg); }
-      80% { opacity: 1; }
+    .loader-square {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 28px;
+      height: 28px;
+      margin: 2px;
+      border-radius: 0px;
+      background: white;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      animation: square-animation 10s ease-in-out infinite both;
+    }
+    .loader-square:nth-of-type(1) { animation-delay: 0s; }
+    .loader-square:nth-of-type(2) { animation-delay: -1.4285714286s; }
+    .loader-square:nth-of-type(3) { animation-delay: -2.8571428571s; }
+    .loader-square:nth-of-type(4) { animation-delay: -4.2857142857s; }
+    .loader-square:nth-of-type(5) { animation-delay: -5.7142857143s; }
+    .loader-square:nth-of-type(6) { animation-delay: -7.1428571429s; }
+    .loader-square:nth-of-type(7) { animation-delay: -8.5714285714s; }
+    @keyframes square-animation {
+      0% { left: 0; top: 0; }
+      10.5% { left: 0; top: 0; }
+      12.5% { left: 32px; top: 0; }
+      23% { left: 32px; top: 0; }
+      25% { left: 64px; top: 0; }
+      35.5% { left: 64px; top: 0; }
+      37.5% { left: 64px; top: 32px; }
+      48% { left: 64px; top: 32px; }
+      50% { left: 32px; top: 32px; }
+      60.5% { left: 32px; top: 32px; }
+      62.5% { left: 32px; top: 64px; }
+      73% { left: 32px; top: 64px; }
+      75% { left: 0; top: 64px; }
+      85.5% { left: 0; top: 64px; }
+      87.5% { left: 0; top: 32px; }
+      98% { left: 0; top: 32px; }
+      100% { left: 0; top: 0; }
+    }
+    /* Responsive loader for mobile */
+    @media (max-width: 600px) {
+      .loader {
+        width: 64px;
+        height: 64px;
+      }
+      .loader-square {
+        width: 18px;
+        height: 18px;
+      }
     }
     </style>
 
@@ -97,15 +152,14 @@
 <body>
     <!-- Loader Integration -->
     <div class="loader-container" id="loader-container">
-        <div class="spinner">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
+        <div class="loader">
+            <div class="loader-square"></div>
+            <div class="loader-square"></div>
+            <div class="loader-square"></div>
+            <div class="loader-square"></div>
+            <div class="loader-square"></div>
+            <div class="loader-square"></div>
+            <div class="loader-square"></div>
         </div>
     </div>
     <script>
