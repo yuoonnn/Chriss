@@ -1210,6 +1210,66 @@ h6,
     .project-content {
         padding: 1.5rem 1rem;
     }
+
+    .nav-menu {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100vw;
+        background: var(--bg-primary);
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 2rem 0 1.5rem 0;
+        box-shadow: var(--shadow-medium);
+        z-index: 999;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.35s cubic-bezier(.4,1.5,.5,1);
+        border-bottom-left-radius: 1.5rem;
+        border-bottom-right-radius: 1.5rem;
+    }
+    .nav-menu.active {
+        max-height: 400px;
+        overflow: visible;
+    }
+    .nav-toggle {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 44px;
+        height: 44px;
+        margin-left: 1rem;
+        z-index: 1001;
+    }
+    .theme-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        z-index: 1002;
+        margin-left: 0.5rem;
+        width: 44px;
+        height: 44px;
+        font-size: 1.3rem;
+        background: none;
+    }
+    .nav-container {
+        position: relative;
+        height: 70px;
+        padding: 0 1.2rem;
+    }
+    .nav-logo {
+        z-index: 1002;
+    }
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        z-index: 1000;
+    }
 }
 
 /* Smooth Scrolling */
