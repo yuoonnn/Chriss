@@ -948,236 +948,231 @@ h6,
     .hero-container,
     .about-content,
     .contact-content {
-        overflow: visible;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        width: 100% !important;
+        margin: 0 auto !important;
+        padding: 2rem 0 !important;
+    }
+    .profile-card,
+    .about-image,
+    .project-card,
+    .project-image,
+    .contact-form,
+    .certification-card {
+        margin: 0 auto !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    .project-content,
+    .certification-card-inner {
+        align-items: center !important;
+        text-align: center !important;
+        width: 100% !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+    .meet-me-gallery {
+        margin: 0 auto !important;
+        width: 100% !important;
+        justify-items: center !important;
+    }
+    .meet-me-gallery img {
+        margin: 0 auto !important;
+        display: block !important;
+    }
+    .form-group {
+        width: 100% !important;
+        margin: 0 auto 1.5rem auto !important;
     }
     .hero {
-        padding: 2rem 0 1.5rem 0;
+        padding: 4rem 0 2rem 0;
     }
-    .about {
-        padding: 2rem 0 1.5rem 0;
-    }
-    .skills,
-    .projects,
-    .meet-dev,
-    .certifications,
-    .contact {
-        padding: 2rem 0 1.5rem 0;
+    .about, .skills, .projects, .meet-dev, .certifications, .contact {
+        padding: 4rem 0 2rem 0;
     }
     .section-title {
-        font-size: 1.5rem;
-        margin-bottom: 1.2rem;
+        font-size: 2rem;
+        margin-bottom: 2rem;
     }
     .profile-card {
-        width: 120px;
-        height: 120px;
+        width: 200px;
+        height: 200px;
         margin: 0 auto;
     }
     .profile-image {
-        width: 110px;
-        height: 110px;
+        width: 180px;
+        height: 180px;
     }
     .about-image .image-placeholder,
     .about-image img {
-        width: 120px !important;
-        height: 120px !important;
-        border-radius: 0.75rem !important;
+        width: 180px !important;
+        height: 180px !important;
+        border-radius: 1rem !important;
     }
     .about-stats {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
         gap: 1.5rem;
     }
     .stat {
-        padding: 1rem 0.5rem;
-        font-size: 0.95rem;
+        padding: 1.2rem 0.75rem;
+        font-size: 1.1rem;
     }
     .project-card {
-        border-radius: 1rem;
+        border-radius: 1.2rem;
     }
     .project-image {
-        height: 140px !important;
-        border-radius: 1rem 1rem 0 0 !important;
+        height: 200px !important;
+        border-radius: 1.2rem 1.2rem 0 0 !important;
     }
     .project-content {
-        padding: 1rem 0.5rem;
+        padding: 1.5rem 1rem;
     }
     .meet-me-gallery img {
-        height: 80px !important;
-        border-radius: 0.5rem !important;
+        height: 110px !important;
+        border-radius: 0.8rem !important;
     }
     .certification-card-inner {
-        padding: 1rem 0.5rem;
-        gap: 0.5rem;
+        padding: 1.5rem 1rem;
+        gap: 1rem;
     }
     .certification-icon {
-        width: 32px;
-        height: 32px;
+        width: 48px;
+        height: 48px;
     }
     .certification-content h3 {
-        font-size: 1rem;
+        font-size: 1.15rem;
     }
     .certification-content p {
-        font-size: 0.8rem;
+        font-size: 0.95rem;
     }
     .contact-form {
-        padding: 1rem 0.5rem;
+        padding: 1.5rem 1rem;
     }
 }
 
 @media (max-width: 480px) {
     .hero-title {
-        font-size: 1.8rem;
-        line-height: 1.3;
+        font-size: 2.2rem;
+        line-height: 1.2;
     }
-
     .hero-subtitle {
-        font-size: 1rem;
+        font-size: 1.1rem;
     }
-
     .hero-description {
-        font-size: 0.9rem;
+        font-size: 0.95rem;
         line-height: 1.5;
     }
-
     .hero-buttons {
         flex-direction: column;
         align-items: center;
-        gap: 0.75rem;
+        gap: 1rem;
     }
-
     .btn {
         width: 100%;
-        max-width: 280px;
+        max-width: 320px;
         justify-content: center;
-        padding: 1rem 1.5rem;
-        font-size: 0.9rem;
+        padding: 1.1rem 1.7rem;
+        font-size: 1rem;
     }
-
     .profile-card {
-        width: 180px;
-        height: 180px;
+        width: 140px;
+        height: 140px;
     }
-
     .projects-grid,
     .certifications-grid {
         grid-template-columns: 1fr;
-        gap: 1.25rem;
+        gap: 1.5rem;
     }
-
     .skill-items {
         grid-template-columns: 1fr;
-        gap: 0.5rem;
+        gap: 0.75rem;
     }
-
     .skill-item {
-        padding: 0.75rem;
-        font-size: 0.9rem;
+        padding: 1rem;
+        font-size: 1rem;
     }
-
     .certification-card-inner {
         flex-direction: column;
         text-align: center;
-        gap: 0.75rem;
-        padding: 1.25rem;
+        gap: 1rem;
+        padding: 1.5rem;
     }
-
     .certification-icon {
         align-self: center;
-        width: 40px;
-        height: 40px;
+        width: 48px;
+        height: 48px;
     }
-
     .certification-content h3 {
-        font-size: 1.1rem;
+        font-size: 1.15rem;
     }
-
     .certification-content p {
-        font-size: 0.85rem;
+        font-size: 0.95rem;
     }
-
     .section-title {
-        font-size: 1.75rem;
-        margin-bottom: 1.5rem;
+        font-size: 2rem;
+        margin-bottom: 2rem;
     }
-
     .container {
-        padding: 0 1rem;
+        padding: 0 1.2rem;
     }
-
-    /* Meet Dev Section */
     .dev-card {
-        padding: 1.25rem;
+        padding: 1.5rem;
     }
-
     .meet-dev-text h3 {
-        font-size: 1.3rem;
+        font-size: 1.5rem;
     }
-
     .meet-dev-text p {
-        font-size: 0.9rem;
+        font-size: 1rem;
         line-height: 1.5;
     }
-
     .meet-me-gallery {
         grid-template-columns: 1fr;
-        gap: 0.75rem;
+        gap: 1rem;
     }
-
     .meet-me-gallery img {
-        height: 150px;
+        height: 110px;
     }
-
-    /* Contact form */
     .contact-info h3 {
-        font-size: 1.3rem;
+        font-size: 1.5rem;
     }
-
     .contact-info p {
-        font-size: 0.9rem;
+        font-size: 1rem;
     }
-
     .contact-item {
-        font-size: 0.9rem;
-        gap: 0.75rem;
+        font-size: 1rem;
+        gap: 1rem;
     }
-
-    /* Navigation */
     .nav-logo a {
-        font-size: 1.3rem;
+        font-size: 1.5rem;
     }
-
     .nav-container {
-        padding: 0 1rem;
+        padding: 0 1.2rem;
     }
-
-    /* Modal improvements */
     .modal-content {
-        padding: 1rem 0.75rem;
-        margin: 1rem;
-        max-width: calc(100vw - 2rem);
+        padding: 1.2rem 0.5rem 1rem 0.5rem;
+        max-width: 98vw;
     }
-
     .modal-cert-grid {
         grid-template-columns: 1fr;
         gap: 1rem;
     }
-
-    .modal-cert-item {
-        padding: 1rem 0.75rem 0.5rem 0.75rem;
-    }
-
     .modal-cert-item img {
-        max-width: 80px;
-        height: 60px;
+        max-width: 90vw;
+        height: auto;
     }
-
     .modal-cert-name {
+        font-size: 1rem;
+    }
+    .modal-cert-date {
         font-size: 0.9rem;
     }
-
-    .modal-cert-date {
-        font-size: 0.8rem;
-    }
-
     .loader-container {
         align-items: center !important;
         justify-content: center !important;
