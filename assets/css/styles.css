@@ -470,7 +470,8 @@ h6,
 .image-placeholder {
     width: 250px;
     height: 250px;
-    background: var(--gradient-secondary);
+    background: linear-gradient(90deg, var(--bg-tertiary) 25%, var(--bg-secondary) 50%, var(--bg-tertiary) 75%);
+    background-size: 200% 100%;
     border-radius: 1rem;
     display: flex;
     align-items: center;
@@ -478,6 +479,16 @@ h6,
     font-size: 3rem;
     color: white;
     transition: transform 0.35s cubic-bezier(.4,1.5,.5,1);
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
 }
 
 .image-placeholder:hover {
@@ -945,6 +956,7 @@ h6,
         transition: 0.3s;
         box-shadow: var(--shadow-medium);
         padding: 2rem 0;
+        z-index: 999;
     }
 
     .nav-menu.active {
@@ -959,14 +971,38 @@ h6,
         grid-template-columns: 1fr;
         text-align: center;
         gap: 2rem;
+        padding: 2rem 0;
     }
 
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
+        line-height: 1.2;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .hero-description {
+        font-size: 0.95rem;
+        line-height: 1.6;
     }
 
     .hero-buttons {
         justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .hero-image {
+        order: -1;
+        margin-bottom: 1rem;
+    }
+
+    .profile-card {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto;
     }
 
     .about-content {
@@ -976,6 +1012,25 @@ h6,
 
     .about-stats {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .stat {
+        padding: 1.5rem 1rem;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .skill-category {
+        padding: 1.5rem;
+    }
+
+    .skill-items {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
     }
 
     .contact-content {
@@ -985,53 +1040,288 @@ h6,
 
     .certifications-grid {
         grid-template-columns: 1fr;
-    }
-
-    .section-title {
-        font-size: 2rem;
-    }
-
-    .container {
-        padding: 0 1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-title {
-        font-size: 2rem;
-    }
-
-    .hero-subtitle {
-        font-size: 1.2rem;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .btn {
-        width: 100%;
-        max-width: 250px;
-        justify-content: center;
-    }
-
-    .projects-grid,
-    .certifications-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .skill-items {
-        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
     }
 
     .certification-card-inner {
         flex-direction: column;
         text-align: center;
+        gap: 1rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .container {
+        padding: 0 1.5rem;
+    }
+
+    /* Meet Dev Section Mobile */
+    .meet-dev .container {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .dev-card {
+        padding: 1.5rem;
+    }
+
+    .meet-dev-socials {
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .meet-me-gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .meet-me-gallery img {
+        height: 120px;
+        border-radius: 0.75rem;
+    }
+
+    /* Form improvements */
+    .form-group input,
+    .form-group textarea {
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+
+    /* Button improvements */
+    .btn {
+        padding: 0.875rem 1.25rem;
+        font-size: 0.95rem;
+    }
+
+    /* Improve touch targets */
+    .nav-link {
+        padding: 0.75rem 1rem;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .btn {
+        min-height: 44px;
+        touch-action: manipulation;
+    }
+
+    .social-link {
+        min-width: 44px;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Improve scrolling */
+    .hero,
+    .about,
+    .skills,
+    .projects,
+    .meet-dev,
+    .certifications,
+    .contact {
+        padding: 3rem 0;
+    }
+
+    /* Better spacing for sections */
+    .section-title {
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+
+    /* Improve card interactions */
+    .project-card,
+    .certification-card,
+    .skill-category {
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .project-card:active,
+    .certification-card:active,
+    .skill-category:active {
+        transform: scale(0.98);
+    }
+
+    /* Fix potential overflow issues */
+    .hero-container,
+    .about-content,
+    .contact-content {
+        overflow: hidden;
+    }
+
+    /* Improve form usability */
+    .form-group input:focus,
+    .form-group textarea:focus {
+        outline: 2px solid var(--primary-color);
+        outline-offset: 2px;
+    }
+
+    /* Better modal handling */
+    .modal-content {
+        max-height: 85vh;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 1.8rem;
+        line-height: 1.3;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .hero-description {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+        padding: 1rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .profile-card {
+        width: 180px;
+        height: 180px;
+    }
+
+    .projects-grid,
+    .certifications-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    .skill-items {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+
+    .skill-item {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+    }
+
+    .certification-card-inner {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.75rem;
+        padding: 1.25rem;
     }
 
     .certification-icon {
         align-self: center;
+        width: 40px;
+        height: 40px;
+    }
+
+    .certification-content h3 {
+        font-size: 1.1rem;
+    }
+
+    .certification-content p {
+        font-size: 0.85rem;
+    }
+
+    .section-title {
+        font-size: 1.75rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .container {
+        padding: 0 1rem;
+    }
+
+    /* Meet Dev Section */
+    .dev-card {
+        padding: 1.25rem;
+    }
+
+    .meet-dev-text h3 {
+        font-size: 1.3rem;
+    }
+
+    .meet-dev-text p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .meet-me-gallery {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+
+    .meet-me-gallery img {
+        height: 150px;
+    }
+
+    /* Contact form */
+    .contact-info h3 {
+        font-size: 1.3rem;
+    }
+
+    .contact-info p {
+        font-size: 0.9rem;
+    }
+
+    .contact-item {
+        font-size: 0.9rem;
+        gap: 0.75rem;
+    }
+
+    /* Navigation */
+    .nav-logo a {
+        font-size: 1.3rem;
+    }
+
+    .nav-container {
+        padding: 0 1rem;
+    }
+
+    /* Modal improvements */
+    .modal-content {
+        padding: 1rem 0.75rem;
+        margin: 1rem;
+        max-width: calc(100vw - 2rem);
+    }
+
+    .modal-cert-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .modal-cert-item {
+        padding: 1rem 0.75rem 0.5rem 0.75rem;
+    }
+
+    .modal-cert-item img {
+        max-width: 80px;
+        height: 60px;
+    }
+
+    .modal-cert-name {
+        font-size: 0.9rem;
+    }
+
+    .modal-cert-date {
+        font-size: 0.8rem;
     }
 }
 
@@ -1072,7 +1362,7 @@ html {
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--secondary-color);
-}
+} 
 
 body,
 .navbar,
@@ -1667,4 +1957,56 @@ html, body {
     51%, 100% {
         opacity: 0;
     }
+}
+
+/* Lazy Loading Enhancement */
+img[loading="lazy"] {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+img[loading="lazy"].loaded {
+    opacity: 1;
+}
+
+/* Loading placeholder for images */
+.image-placeholder {
+    background: linear-gradient(90deg, var(--bg-tertiary) 25%, var(--bg-secondary) 50%, var(--bg-tertiary) 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Better image loading states */
+.project-image,
+.about-image,
+.meet-me-gallery img {
+    position: relative;
+    overflow: hidden;
+}
+
+.project-image::before,
+.about-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-tertiary);
+    z-index: 1;
+    transition: opacity 0.3s ease;
+}
+
+.project-image img.loaded + .project-image::before,
+.about-image img.loaded + .about-image::before {
+    opacity: 0;
 }
