@@ -580,6 +580,14 @@ function enhanceLazyLoading() {
                 if (entry.isIntersecting) {
                     const img = entry.target;
                     img.classList.add('loaded');
+                    // Add .loaded to parent .project-image or .about-image if present
+                    if (img.parentElement && img.parentElement.classList.contains('project-image')) {
+                        img.parentElement.classList.add('loaded');
+                    } else if (img.parentElement && img.parentElement.classList.contains('about-image')) {
+                        img.parentElement.classList.add('loaded');
+                    } else if (img.parentElement && img.parentElement.parentElement && img.parentElement.parentElement.classList.contains('about-image')) {
+                        img.parentElement.parentElement.classList.add('loaded');
+                    }
                     observer.unobserve(img);
                 }
             });
