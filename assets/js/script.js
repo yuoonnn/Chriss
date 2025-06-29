@@ -12,30 +12,30 @@ navToggle.addEventListener("click", () => {
   navToggle.classList.toggle("active");
   // Animate hamburger bars
   const bars = navToggle.querySelectorAll(".bar");
-  bars.forEach((bar, index) => {
+    bars.forEach((bar, index) => {
     if (navMenu.classList.contains("active")) {
       if (index === 0) bar.style.transform = "rotate(45deg) translate(5px, 5px)";
       if (index === 1) bar.style.opacity = "0";
       if (index === 2) bar.style.transform = "rotate(-45deg) translate(7px, -6px)";
-    } else {
+        } else {
       bar.style.transform = "none";
       bar.style.opacity = "1";
-    }
-  });
+        }
+    });
 });
 
 // Bulletproof close menu function
 function closeMobileMenu() {
-  navMenu.classList.remove("active");
+    navMenu.classList.remove("active");
   navToggle.classList.remove("active");
   // Remove any inline styles that might have been set
   navMenu.removeAttribute("style");
   // Reset hamburger bars
-  const bars = navToggle.querySelectorAll(".bar");
-  bars.forEach((bar) => {
-    bar.style.transform = "none";
-    bar.style.opacity = "1";
-  });
+    const bars = navToggle.querySelectorAll(".bar");
+    bars.forEach((bar) => {
+      bar.style.transform = "none";
+      bar.style.opacity = "1";
+        });
 }
 
 // Close menu on nav link click
@@ -56,7 +56,7 @@ navLinks.forEach((link) => {
         });
       }
     }, 100);
-  });
+    });
 });
 
 // Close menu when clicking outside
@@ -195,11 +195,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     
     // Initialize other elements
-    const animateElements = document.querySelectorAll(
-        ".skill-category, .project-card, .certification-card, .stat"
-    );
-    animateElements.forEach((el) => {
-        el.classList.add("loading");
+  const animateElements = document.querySelectorAll(
+    ".skill-category, .project-card, .certification-card, .stat"
+  );
+  animateElements.forEach((el) => {
+    el.classList.add("loading");
         observer.observe(el);
     });
 });
@@ -271,7 +271,7 @@ if (contactForm) {
                 // Fallback when EmailJS is not available
                 await new Promise(resolve => setTimeout(resolve, 1500));
                 showNotification("Message sent successfully! I'll get back to you soon.", "success");
-                contactForm.reset();
+            contactForm.reset();
             }
         } catch (error) {
             console.error('Email error:', error);
