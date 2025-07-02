@@ -1006,7 +1006,7 @@ h6,
     background: var(--bg-tertiary);
     padding: 2rem 0;
     text-align: center;
-    color: var(--text-primary);
+    color: #111 !important;
 }
 
 .footer-content p {
@@ -2302,4 +2302,8 @@ img[loading="lazy"].loaded {
 .project-image.loaded::before,
 .about-image.loaded::before {
     opacity: 0;
+}
+
+[data-theme="dark"] .footer {
+    color: #fff !important;
 }
