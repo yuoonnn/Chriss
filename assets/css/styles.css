@@ -1006,7 +1006,7 @@ h6,
     background: var(--bg-tertiary);
     padding: 2rem 0;
     text-align: center;
-    color: var(--text-secondary);
+    color: var(--text-primary);
 }
 
 .footer-content p {
