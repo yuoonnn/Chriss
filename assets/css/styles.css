@@ -883,8 +883,12 @@ h6,
 
 /* Contact Section */
 .contact {
+    background: var(--bg-primary);
     padding: 6rem 0;
-    background: var(--bg-secondary);
+}
+
+[data-theme="dark"] .contact {
+    background: var(--bg-primary);
 }
 
 .contact-content {
@@ -948,12 +952,16 @@ h6,
 }
 
 .contact-form {
-    background: var(--bg-primary);
+    background: var(--bg-secondary);
     padding: 2rem;
     border-radius: 1rem;
     box-shadow: var(--shadow-light);
     position: relative;
     overflow: hidden;
+}
+
+[data-theme="dark"] .contact-form {
+    background: var(--bg-primary);
 }
 
 .contact-form::before {
@@ -1003,10 +1011,14 @@ h6,
 
 /* Footer */
 .footer {
-    background: var(--bg-tertiary);
+    background: var(--bg-primary);
+    color: #111 !important;
     padding: 2rem 0;
     text-align: center;
-    color: #111 !important;
+}
+
+[data-theme="dark"] .footer {
+    color: #fff !important;
 }
 
 .footer-content p {
@@ -1579,6 +1591,7 @@ body,
 
 /* Meet the Dev Section - Proportion & Balance */
 .meet-dev {
+    background: var(--bg-primary);
     padding-top: 3rem;
     padding-bottom: 4rem;
 }
@@ -2302,8 +2315,4 @@ img[loading="lazy"].loaded {
 .project-image.loaded::before,
 .about-image.loaded::before {
     opacity: 0;
-}
-
-[data-theme="dark"] .footer {
-    color: #fff !important;
 }
