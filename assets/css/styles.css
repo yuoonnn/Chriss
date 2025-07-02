@@ -184,7 +184,7 @@ h6,
 }
 
 .nav-logo a {
-    font-size: 1 rem;
+    font-size: 0.9rem;
     font-weight: 700;
     color: var(--primary-color);
     text-decoration: none;
@@ -1114,6 +1114,10 @@ h6,
         font-size: 1.1rem;
     }
 
+    .stat h3 {
+        font-size: 1.5rem;
+    }
+
     .project-card {
         border-radius: 1.2rem;
     }
@@ -1235,6 +1239,10 @@ h6,
         padding: 0 1.2rem;
     }
 
+    .stat h3 {
+        font-size: 1.3rem;
+    }
+
     .dev-card {
         padding: 2rem 1rem 1.5rem 1rem;
         margin-top: 1.5rem;
@@ -1327,7 +1335,7 @@ h6,
     }
 
     .nav-logo a {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
 
     .nav-container {
